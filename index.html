@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece - Official Fan Website</title>
+    <style>
+       /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0%;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(42, 42, 42, 0); /* Semi-transparent background */
+    padding: 2rem;
+    position: fixed;
+    width: 100%;
+    top: -100px;
+    z-index: 1000;
+    transition: background-color 0.3s; /* Transition effect for background color */
+}
+
+.nav-content {
+    max-width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    font-size: 23px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s; /* Transition for hover effect */
+}
+
+.nav-links a:hover {
+    color: #008cff;
+    background-color: rgba(0, 0, 0, 0.2); /* Background change on hover */
+}
+
+.nav-logo {
+    height: auto; /* Logo height */
+    width: 300px; /* Automatic width for proportional scaling */
+    cursor: pointer; /* Indicate that the logo is clickable */
+    transition: transform 0.3s ease; /* Menambahkan transisi yang halus */
+}
+
+.nav-logo:hover {
+    transform: scale(1.1); /* Memperbesar gambar sebesar 10% */
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    margin-top: -3rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.hero h1 {
+    font-size: 7rem;
+    margin-bottom: 1rem;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Sections */
+.section {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+/* Character Grid */
+.characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.character-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(107, 76, 230, 0.3);
+}
+
+.character-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-img {
+    transform: scale(1.05);
+}
+
+.character-info {
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover .character-info {
+    transform: translateY(-5px);
+}
+
+.character-info h3 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.character-modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+        .character-details {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 600px;
+        }
+
+        .character-details h2 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .character-details p {
+            line-height: 1.6;
+            color: #ddd;
+        }
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+
+
+.gallery.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.gallery-item.reveal-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* For different animation directions in gallery */
+.gallery-item:nth-child(odd) {
+    transform: translateX(-50px) scale(0.9);
+}
+
+.gallery-item:nth-child(even) {
+    transform: translateX(50px) scale(0.9);
+}
+
+.gallery-item.reveal-active:nth-child(odd),
+.gallery-item.reveal-active:nth-child(even) {
+    transform: translateX(0) scale(1);
+}
+
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* News Section */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+        }
+
+    .news-grid.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    .news-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+
+        }
+
+    .news-grid.reveal-active .news-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.news-grid.reveal-active .news-card:nth-child(1) { transition-delay: 0.2s; }
+.news-grid.reveal-active .news-card:nth-child(2) { transition-delay: 0.4s; }
+.news-grid.reveal-active .news-card:nth-child(3) { transition-delay: 0.6s; }
+
+        /* Fade in animation for news cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply different animation delays to each card */
+        .news-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .news-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .news-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        /* Hover effects for news cards */
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(107, 76, 230, 0.3);
+        }
+
+        .news-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .news-img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover .news-content {
+            transform: translateY(-5px);
+        }
+
+        .news-date {
+            color: #7086ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .news-date::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        .news-card:hover .news-date::after {
+            width: 100%;
+        }
+
+        .styled-link {
+            background-color: #1c1faf;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .styled-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: all 0.5s ease;
+        }
+
+        .styled-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(107, 76, 230, 0.4);
+            background-color: #5438b8;
+        }
+
+        .styled-link:hover::before {
+            left: 100%;
+        }
+
+        /* Add animation trigger on scroll */
+        .news-section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+/* Hub Footer & Button Styling */
+.hub-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #520000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #6a0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(82, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn {
+    justify-content: center;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #003c8b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0044ff;
+}
+
+/* Styled Links */
+.styled-link {
+    background-color: yellow; /* Background color */
+    color: black; /* Text color */
+    padding: 5px; /* Padding */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.styled-link:hover {
+    background-color: orange; /* Change color on hover */
+}
+
+/* Clickable Images */
+.clickable-image {
+    width: 200px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s; /* Smooth transition on hover */
+}
+
+.clickable-image:hover {
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.50);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+/* Close Button */
+
+
+.close {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: color 0.3s ease;
+       
+}
+
+.close:hover {
+    color: #670000;
+}
+
+/* Responsiveness for smaller screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+    
+    .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+#video-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            background-color: #000;
+            cursor: pointer;
+        }
+
+        #video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Video modal styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal.show {
+            opacity: 1;
+        }
+        
+
+        .video-modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .video-modal.show .video-modal-content {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+#myVideo {
+    width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            background-color: transparent;
+}
+
+
+        
+ /* ... style sebelumnya ... */
+ .time-display {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            margin: 0 10px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .time-remaining {
+            color: #a0a0a0;
+            cursor: pointer;
+        }
+        
+        .video-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            color: white;
+        }
+        
+        .skip-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+ /* New styles for video controls */
+ .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-modal-content:hover + .video-controls,
+        .video-controls:hover {
+            opacity: 1;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .control-button:hover {
+            transform: scale(1.1);
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .volume-slider {
+            width: 80px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            transition: width 0.2s;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #1c1fc0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .speed-dropdown {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid #1000a1;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .speed-dropdown option {
+            background: black;
+        }
+
+        .time-display {
+            color: white;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar-filled {
+            height: 100%;
+            background: #2031ca;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+#play-button {
+    position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(75, 168, 255, 0.589);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #play-button:hover {
+            background-color: #0051ffa8;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        #play-button svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+        .close-video {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-video:hover {
+            color: #770101;
+        }
+#play-button.hidden {
+    display: none;
+}
+
+#video-container:hover #play-button:not(.hidden) {
+            opacity: 1;
+        }
+    
+#play-button {
+            opacity: 0.9;
+            transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+        }
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 0%;
+    overflow: hidden;
+}
+
+.slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.hot-topic {
+    border-left: 4px solid #6b0911;
+    background: linear-gradient(45deg, #333, #3a3a3a);
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-position: center;}
+
+.theory {   
+    border-left: 4px solid #0917b2;
+    background: linear-gradient(45deg, #333, #3a3a3a);
+    background-image: url('bg3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.fan-content {
+    border-left: 4px solid #049a4a;
+    background: linear-gradient(45deg, #333, #3a3a3a);
+    background-image: url('bg4.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.topic-header h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.topic-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background-color: #8f0000;
+}
+
+.topic-badge.trending {
+    background-color: #ff4757;
+    color: white;
+}
+
+.theory-badge {
+    background-color: #2c07c0;
+    color: white;
+}
+
+.art-badge {
+    background-color: #26de81;
+    color: white;
+}
+
+.topic-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.topic-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+
+
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn {
+    background-color: #520000;
+    color: white;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid #3d0101;
+    color: #520606;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 76, 230, 0.3);
+}
+
+/*animasi */
+.reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        /* Different animations for different elements */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 1s ease;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 1s ease;
+        }
+
+        .reveal-zoom {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .reveal-left.active,
+        .reveal-right.active,
+        .reveal-zoom.active {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* Add fade delay classes */
+        .delay-1 {
+            transition-delay: 0.2s;
+        }
+        .delay-2 {
+            transition-delay: 0.4s;
+        }
+        .delay-3 {
+            transition-delay: 0.6s;
+        }
+
+.enhanced-stroke-text {
+    -webkit-text-stroke: 1px #0084ff;
+}
+
+
+.footer {
+    background: linear-gradient(to right, #1a1a1a, #2a2a2a, #1a1a1a);
+    color: #fff;
+    padding: 4rem 0 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+.footer img {
+            width: 40px; /* Ukuran gambar logo media sosial */
+            margin: 10px; /* Jarak gambar dari teks */
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0060b9, #00c3ff, #003f9c);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background: #005194;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #4db8ff;
+    transform: translateX(5px);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fdfdfd;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #4db8ff;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+}
+
+.newsletter-form button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: #003881;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #00b7ff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+#imageModal span {
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  transition: color 0.3s ease;
+}
+
+#imageModal span:hover {
+  color: #880606;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="index.html">
+                <img src="logo1.png" alt="One Piece Logo" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#characters">Characters</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#news">News</a>
+            </div>
+        </div>
+    </nav>    
+
+    <section class="hero" id="home">
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline>
+            <source src="opening1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content" >
+            <h1 class="enhanced-stroke-text" style="font-family:one piece;">One Piece</h1>
+            <p>"Set sail into the world of pirates, where fearless adventurers search for the legendary One Piece, battling powerful enemies, unbreakable bonds, and the mysteries of the Grand Line in their quest to become the Pirate King."</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section reveal" id="about">
+            <h2>About the Series</h2>
+            <p>One Piece" is a legendary tale of adventure, friendship, and dreams. The series follows Monkey D. Luffy and his Straw Hat Pirates as they journey across treacherous seas, face powerful foes, and unravel the mysteries of the Grand Line. Their ultimate goal? To find the fabled treasure, One Piece, and fulfill their destinies while fighting for freedom and justice in a world ruled by chaos and ambition.</p>   
+        </section>
+
+         <!-- Video container tetap sama -->
+    <div id="video-container" class="reveal">
+        <img src="thumbnail.jpg" alt="Video thumbnail" id="video-thumbnail">
+        <button id="play-button" aria-label="Play video">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                <polygon points="5 3 19 12 5 21 5 3" fill="white"></polygon>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Video modal dengan kontrol tambahan -->
+    <div id="videoModal" class="video-modal">
+        <span class="close-video">&times;</span>
+        <video class="video-modal-content" id="modalVideo">
+            <source src="opening.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="video-controls">
+            <button class="skip-button" id="rewindBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                    <line x1="5" y1="19" x2="5" y2="5"></line>
+                </svg>
+            </button>
+            
+            <button class="control-button" id="playPauseBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3" class="play-icon" fill="white"></polygon>
+                    <g class="pause-icon" style="display:none;">
+                        <line x1="6" y1="4" x2="6" y2="20"></line>
+                        <line x1="18" y1="4" x2="18" y2="20"></line>
+                    </g>
+                </svg>
+            </button>
+            
+            <button class="skip-button" id="forwardBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
+            
+            <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="timeRemaining" class="time-remaining">-0:00</span>
+            </div>
+            
+            <button class="control-button" id="muteBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path class="volume-high" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+            </button>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100">
+        </div>
+    </div><br>
+
+        <section class="section" id="characters">
+            <h2 class="reveal">Main Characters</h2>
+            <div class="characters">
+                <div class="character-card reveal-left delay-1" data-character="luffy">
+                    <img src="luffy.jpeg" alt="Monkey D Luffy" class="character-img">
+                    <div class="character-info">
+                        <h3>Monkey D. Luffy</h3>
+                        <p>The adventurous captain of the Straw Hat Pirates, driven by his dream to become the Pirate King. With his elastic powers from the Gomu Gomu no Mi and unwavering optimism.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="character-card reveal-left delay-2" data-character="zoro">
+                    <img src="zoro.jpg" alt="Roronoa Zoro" class="character-img">
+                    <div class="character-info">
+                        <h3>Roronoa Zoro</h3>
+                        <p>A master swordsman who wields three swords with unmatched skill. Fiercely loyal to Luffy, Zoro is determined to become the world’s greatest swordsman.</p>
+                    </div>
+                </div>
+
+                <div class="character-card reveal-left delay-3" data-character="nami">
+                    <img src="nami.webp" alt="Nami" class="character-img">
+                    <div class="character-info">
+                        <h3>Nami</h3>
+                        <p>The talented navigator of the crew with a sharp mind and a love for treasure. Despite her tough exterior, Nami deeply cares for her friends and uses her Clima-Tact.</p>
+                    </div>
+                </div>
+
+                <div class="character-card reveal-left delay-1" data-character="usop">
+                    <img src="usop.jpg" alt="Usop" class="character-img">
+                    <div class="character-info">
+                        <h3>Usopp</h3>
+                        <p>The crew’s sniper with a knack for storytelling and inventing gadgets. Though often cowardly, Usopp’s courage shines through when it matters most.</p>
+                    </div>        
+                </div>
+
+                <div class="character-card reveal-left delay-2" data-character="sanji">
+                    <img src="sanji.jpg" alt="Sanji" class="character-img">
+                    <div class="character-info">
+                        <h3>Sanji</h3>
+                        <p>The Straw Hats’ suave and chivalrous cook, known for his exceptional culinary skills and powerful kicks. Sanji’s deep respect for women and unshakable loyalty.</p>
+                    </div>        
+                </div>
+
+                <div class="character-card reveal-left delay-3" data-character="chopper">
+                    <img src="chopper.webp" alt="Tony Tony Chopper" class="character-img">
+                    <div class="character-info">
+                        <h3>Tony Tony Chopper</h3>
+                        <p>A reindeer who gained human traits through the Hito Hito no Mi. Chopper is the crew’s doctor, combining his medical expertise with his ability to transform into various forms.</p>
+                    </div>        
+                </div>
+            </div>
+        </section>
+
+        <div id="characterModal" class="modal">
+            <span class="close">&times;</span>
+            <div class="character-modal-content">
+                <img class="modal-content" id="modalCharacterImage">
+                <div class="character-details">
+                    <h2 id="modalCharacterName"></h2>
+                    <p id="modalCharacterDesc"></p>
+                </div>
+            </div>
+        </div>
+        
+
+        <section class="section" id="gallery">
+            <h2 class="reveal">Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage1" src="scene1.webp" alt="One Piece Scene 1" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage1" src="scene2.webp" alt="One Piece Scene 2" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage2" src="scene3.jpeg" alt="One Piece Scene 3" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage2" src="scene4.webp" alt="One Piece Scene 4" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage3" src="scene5.webp" alt="One Piece Scene 5" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage4" src="scene6.jpg" alt="One Piece Scene 6" class="clickable-image">
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage4" src="scene7.jpg" alt="One Piece Scene 7" class="clickable-image">
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img id="myImage4" src="scene8.jpg" alt="One Piece Scene 8" class="clickable-image">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+<!-- Modal untuk menampilkan gambar besar -->
+<div id="imageModal" class="modal">
+    <span id="close-gallery-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+        
+        
+<!-- Modal -->
+<div id="imageModal" class="modal">
+    <img id="modalImage" class="modal-content">
+  </div>
+
+        <section class="section" id="news">
+            <h2 class="reveal">Latest News</h2>
+            <div class="news-grid">
+                <div class="news-card reveal-left delay-1">
+                    <img src="anime.jpg" alt="Season 2 News" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">Juli 7, 2019</div>
+                        <h3>New Anime Episodes Release</h3>
+                        <p>The Wano arc brings intense battles and shocking revelations.</p><br>
+                        <a href="https://www.bilibili.tv/id/play/37976" class="styled-link">Watch here</a>
+                    </div>
+                </div>
+                <div class="news-card reveal-left delay-2">
+                    <img src="manga.webp" alt="Manga Update" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">September 25, 2022</div>
+                        <h3>New Manga Chapter Release</h3>
+                        <p>The latest One Piece chapter delivers shocking turns in the ongoing arc.</p><br>
+                        <a href="https://mangaplus.shueisha.co.jp/titles/100020" class="styled-link">Watch here</a>
+                    </div>
+                </div>
+                <div class="news-card reveal-left delay-3">
+                    <img src="movie.webp" alt="Movie Announcement" class="news-img">
+                    <div class="news-content">
+                        <div class="news-date">Agustus 6, 2022</div>
+                        <h3>New Movie Announcement</h3>
+                        <p>New One Piece movie set for theatrical release, announced by Toei.</p><br>
+                        <a href="https://www.bilibili.tv/id/play/2082286?bstar_from=bstar-web.pgc-video-detail.series.0" class="styled-link">Watch here</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="footer reveal">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="reveal">About One Piece</h3>
+                <p>Set sail into the world of pirates, where fearless adventurers search for the legendary One Piece, battling powerful enemies, unbreakable bonds, and the mysteries of the Grand Line in their quest to become the Pirate King.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/onepieceofficial/?locale=id_ID" target="_blank">
+                        <img src="facebook (1).png" alt="Facebook Logo"> <!-- Gambar logo Facebook -->
+                    </a>
+                    <a href="https://x.com/OnePieceAnime?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+                        <img src="twitter (1).png" alt="Twitter Logo"> <!-- Gambar logo Twitter -->
+                    </a>
+                    <a href="https://www.instagram.com/onepieceanimeofficial/?hl=en" target="_blank">
+                        <img src="instagram (1).png" alt="Instagram Logo"> <!-- Gambar logo Instagram -->
+                    </a>
+                    <a href="https://discord.com/invite/Ty7BB7M" target="_blank">
+                        <img src="discord (1).png" alt="Discord Logo"> <!-- Gambar logo Instagram -->
+                    </a>
+                </div>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="reveal">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#characters">Characters</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#news">News</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="reveal">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="https://mangaplus.shueisha.co.jp/titles/100020">Manga Chapters</a></li>
+                    <li><a href="https://www.bilibili.tv/id/play/37976">Anime Episodes</a></li>
+                    <li><a href="https://onepiece.fandom.com/wiki/List_of_Canon_Characters">Character Guide</a></li>
+                    <li><a href="https://onepiece.fandom.com/wiki/Rokushiki">Cursed Techniques</a></li>
+                    <li><a href="https://www.opfanpage.com/category/theories/">Fan Theories</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3 class="reveal">Support</h3>
+                <p>We really appreciate your feedback and support!</p>
+                <form class="newsletter-form">
+                    <input type="text" placeholder="Enter your message">
+                    <button type="submit" >Send</button>
+                </form>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2024 One Piece Fan Website. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        
+//Smooth scroll animation for navbar links
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    
+
+  // Modal gallery elements
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const closeBtn = document.querySelector('#close-gallery-modal');
+const images = document.querySelectorAll('.clickable-image');
+
+// Function to open modal
+function openModal(imageSrc) {
+  modal.style.display = 'block';
+  modalImg.src = imageSrc;
+  setTimeout(() => {
+    modal.classList.add('show');
+  }, 10);
+}
+
+// Function to close modal
+function closeModal() {
+  modal.classList.remove('show');
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 300);
+}
+
+// Add click event to all clickable images
+images.forEach(img => {
+  img.addEventListener('click', function() {
+    openModal(this.src);
+  });
+});
+
+// Add click event to close button
+if (closeBtn) {
+  closeBtn.addEventListener('click', closeModal);
+} else {
+  console.error('Close button not found!');
+}
+
+// Close modal when clicking outside the image
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+// Close modal when pressing Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && modal.style.display === 'block') {
+    closeModal();
+  }
+});
+
+
+
+  // Character modal
+  const characterCards = document.querySelectorAll('.character-card');
+  const characterModal = document.getElementById('characterModal');
+  const characterModalImg = document.getElementById('modalCharacterImage');
+  const characterModalName = document.getElementById('modalCharacterName');
+  const characterModalDesc = document.getElementById('modalCharacterDesc');
+  const characterCloseBtn = document.querySelector('.close');
+
+  const characterDetails = {
+    // ...
+  };
+
+  function openCharacterModal(characterId) {
+    const character = characterDetails[characterId];
+    if (!character) return;
+
+    characterModal.style.display = 'block';
+    characterModalImg.src = character.images[character.currentImageIndex];
+    characterModalName.textContent = character.name;
+    characterModalDesc.textContent = character.description;
+
+    setTimeout(() => {
+      characterModal.classList.add('show');
+    }, 10);
+
+    characterModalImg.onclick = function() {
+      character.currentImageIndex = (character.currentImageIndex + 1) % character.images.length;
+      characterModalImg.src = character.images[character.currentImageIndex];
+    };
+  }
+
+  function closeCharacterModal() {
+    characterModal.classList.remove('show');
+    setTimeout(() => {
+      characterModal.style.display = 'none';
+    }, 300);
+  }
+
+  characterCards.forEach(card => {
+    card.addEventListener('click', function() {
+      const characterId = this.dataset.character;
+      openCharacterModal(characterId);
+    });
+  });
+
+  characterCloseBtn.addEventListener('click', closeCharacterModal);
+  characterModal.addEventListener('click', function(e) {
+    if (e.target === characterModal) {
+      closeCharacterModal();
+    }
+  });
+});
+
+// Character modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const characterCards = document.querySelectorAll('.character-card');
+    const modal = document.getElementById('characterModal');
+    const modalImg = document.getElementById('modalCharacterImage');
+    const modalName = document.getElementById('modalCharacterName');
+    const modalDesc = document.getElementById('modalCharacterDesc');
+    const closeBtn = document.querySelector('.close');
+
+    // Character details database
+    const characterDetails = {
+        luffy: {
+            name: 'Monkey D Luffy',
+            images: ['luffy.png', 'luffy-action.jpg', 'luffy.jpg'],
+            description: 'The adventurous captain of the Straw Hat Pirates, driven by his dream to become the Pirate King.',
+            currentImageIndex: 0
+        },
+        zoro: {
+            name: 'Roronoa Zoro',
+            images: ['zoro.png', 'zoro-action.png', 'zoro.png'],
+            description: 'A master swordsman who wields three swords with unmatched skill. Fiercely loyal to Luffy.',
+            currentImageIndex: 0
+        },
+        nami: {
+            name: 'Nami',
+            images: ['nami.png', 'nami-action.png', 'nami.png'],
+            description: 'The talented navigator of the crew with a sharp mind and a love for treasure. Despite her tough exterior.',
+            currentImageIndex: 0
+        },
+        usop: {
+            name: 'Usop',
+            images: ['usop.png', 'usop-action.jpg', 'usop.jpg'],
+            description: 'The crew’s sniper with a knack for storytelling and inventing gadgets. Though often cowardly.',
+            currentImageIndex: 0
+        },
+        sanji: {
+            name: 'Sanji',
+            images: ['sanji.png', 'sanji-action.jpg', 'sanji.jpg'],
+            description: 'The Straw Hats’ suave and chivalrous cook, known for his exceptional culinary skills and powerful kicks.',
+            currentImageIndex: 0
+        },
+        chopper: {
+            name: 'Tony Tony Chopper',
+            images: ['chopper.png', 'chopper-action.jpg', 'chopper.jpg'],
+            description: 'A reindeer who gained human traits through the Hito Hito no Mi. Chopper is the crew’s doctor, combining his medical expertise.',
+            currentImageIndex: 0
+        },
+    };
+
+    function openCharacterModal(characterId) {
+        const character = characterDetails[characterId];
+        if (!character) return;
+
+        modal.style.display = 'block';
+        modalImg.src = character.images[character.currentImageIndex];
+        modalName.textContent = character.name;
+        modalDesc.textContent = character.description;
+
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+
+        // Add click handler to cycle through images
+        modalImg.onclick = function() {
+            character.currentImageIndex = (character.currentImageIndex + 1) % character.images.length;
+            modalImg.src = character.images[character.currentImageIndex];
+        };
+    }
+
+    function closeModal() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    characterCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const characterId = this.dataset.character;
+            openCharacterModal(characterId);
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+});
+
+
+        
+//Modal Video
+document.addEventListener('DOMContentLoaded', function() {
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const playButton = document.getElementById('play-button');
+        const closeBtn = document.querySelector('.close-video');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const timeRemainingDisplay = document.getElementById('timeRemaining');
+        const rewindBtn = document.getElementById('rewindBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        
+        let isShowingTimeRemaining = false;
+        
+        // Fungsi untuk memformat waktu
+        function formatTime(seconds) {
+            const minutes = Math.floor(Math.abs(seconds) / 60);
+            const remainingSeconds = Math.floor(Math.abs(seconds) % 60);
+            return `${seconds < 0 ? '-' : ''}${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Update tampilan waktu
+        function updateTimeDisplay() {
+            const currentTime = modalVideo.currentTime;
+            const duration = modalVideo.duration;
+            const remaining = duration - currentTime;
+            
+            currentTimeDisplay.textContent = formatTime(currentTime);
+            timeRemainingDisplay.textContent = formatTime(-remaining);
+        }
+        
+        // Toggle antara current time dan time remaining
+        timeRemainingDisplay.addEventListener('click', function() {
+            isShowingTimeRemaining = !isShowingTimeRemaining;
+            this.style.color = isShowingTimeRemaining ? 'white' : '#a0a0a0';
+            currentTimeDisplay.style.color = isShowingTimeRemaining ? '#a0a0a0' : 'white';
+        });
+        
+        // Fungsi untuk melewati waktu
+        function skipTime(seconds) {
+            const newTime = modalVideo.currentTime + seconds;
+            modalVideo.currentTime = Math.max(0, Math.min(newTime, modalVideo.duration));
+        }
+        
+        // Event listeners untuk tombol skip
+        rewindBtn.addEventListener('click', () => skipTime(-5));
+        forwardBtn.addEventListener('click', () => skipTime(5));
+        
+        // Menambahkan event listener untuk update waktu
+        modalVideo.addEventListener('timeupdate', updateTimeDisplay);
+        modalVideo.addEventListener('loadedmetadata', updateTimeDisplay);
+        
+        // Volume control functions
+        function updateVolume(value) {
+            modalVideo.volume = value / 100;
+            modalVideo.muted = value === 0;
+        }
+        
+        volumeSlider.addEventListener('input', function() {
+            updateVolume(this.value);
+        });
+        
+        muteBtn.addEventListener('click', function() {
+            if (modalVideo.muted) {
+                modalVideo.muted = false;
+                volumeSlider.value = modalVideo.volume * 100;
+            } else {
+                modalVideo.muted = true;
+                volumeSlider.value = 0;
+            }
+        });
+        
+        // Modal functions
+        function showVideoModal() {
+            videoModal.style.display = 'block';
+            videoModal.offsetHeight;
+            videoModal.classList.add('show');
+            updatePlayPauseIcon(true);
+        }
+
+        function hideVideoModal() {
+            videoModal.classList.remove('show');
+            modalVideo.pause();
+            updatePlayPauseIcon(true);
+            
+            setTimeout(() => {
+                videoModal.style.display = 'none';
+            }, 300);
+        }
+
+        function updatePlayPauseIcon(isPaused) {
+            const playIcon = playPauseBtn.querySelector('.play-icon');
+            const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+            
+            if (playIcon && pauseIcon) {
+                playIcon.style.display = isPaused ? 'block' : 'none';
+                pauseIcon.style.display = isPaused ? 'none' : 'block';
+            }
+        }
+
+        function togglePlayPause() {
+            if (modalVideo.paused) {
+                modalVideo.play();
+                updatePlayPauseIcon(false);
+            } else {
+                modalVideo.pause();
+                updatePlayPauseIcon(true);
+            }
+        }
+
+        // Event Listeners
+        playButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showVideoModal();
+        });
+
+        closeBtn.addEventListener('click', hideVideoModal);
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                hideVideoModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (videoModal.style.display === 'block') {
+                switch(e.key) {
+                    case 'Escape':
+                        hideVideoModal();
+                        break;
+                    case 'ArrowLeft':
+                        skipTime(-5);
+                        break;
+                    case 'ArrowRight':
+                        skipTime(5);
+                        break;
+                }
+            }
+        });
+
+        // Initialize
+        updatePlayPauseIcon(true);
+        updateVolume(volumeSlider.value);
+    });
+//Tompol play
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('myVideo');
+    const playButton = document.getElementById('play-button');
+    
+    // Preload video metadata
+    video.preload = 'metadata';
+
+    // Function to handle play/pause
+    function toggleVideo() {
+        if (video.paused) {
+            // Play video
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    playButton.classList.add('hidden');
+                })
+                .catch(error => {
+                    console.log("Playback failed:", error);
+                });
+            }
+        } else {
+            // Pause video
+            video.pause();
+            playButton.classList.remove('hidden');
+        }
+    }
+
+    // Add click listeners to both video and button
+    playButton.addEventListener('click', toggleVideo);
+    video.addEventListener('click', toggleVideo);
+
+    // Show play button when video ends
+    video.addEventListener('ended', function() {
+        playButton.classList.remove('hidden');
+        video.currentTime = 0; // Reset video to start
+    });
+
+    // Show play button initially
+    playButton.classList.remove('hidden');
+});
+
+
+//BG video
+document.addEventListener('DOMContentLoaded', function() {
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const closeBtn = document.querySelector('.close-video');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const speedSelect = document.getElementById('speedSelect');
+        const progressBar = document.getElementById('progressBar');
+        const progressBarFilled = progressBar.querySelector('.progress-bar-filled');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+
+        function togglePlayPause() {
+            if (modalVideo.paused) {
+                modalVideo.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            } else {
+                modalVideo.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            }
+        }
+
+        function updateProgress() {
+            const percentage = (modalVideo.currentTime / modalVideo.duration) * 100;
+            progressBarFilled.style.width = `${percentage}%`;
+            currentTimeDisplay.textContent = formatTime(modalVideo.currentTime);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            seconds = Math.floor(seconds % 60);
+            return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        modalVideo.addEventListener('loadedmetadata', function() {
+            durationDisplay.textContent = formatTime(modalVideo.duration);
+        });
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+        
+        muteBtn.addEventListener('click', function() {
+            modalVideo.muted = !modalVideo.muted;
+            volumeSlider.value = modalVideo.muted ? 0 : 100;
+        });
+
+        volumeSlider.addEventListener('input', function() {
+            modalVideo.volume = this.value / 100;
+            modalVideo.muted = this.value === 0;
+        });
+
+        speedSelect.addEventListener('change', function() {
+            modalVideo.playbackRate = parseFloat(this.value);
+        });
+
+        progressBar.addEventListener('click', function(e) {
+            const pos = (e.pageX - this.offsetLeft) / this.offsetWidth;
+            modalVideo.currentTime = pos * modalVideo.duration;
+        });
+
+        modalVideo.addEventListener('timeupdate', updateProgress);
+
+        // Existing modal open/close logic remains the same
+    });
+
+
+
+
+//animasi
+  // Add scroll reveal functionality
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom');
+            
+            reveals.forEach(element => {
+                var windowHeight = window.innerHeight;
+                var elementTop = element.getBoundingClientRect().top;
+                var elementVisible = 150; // Adjust this value to change when the animation triggers
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                } else {
+                    // Uncomment the line below if you want elements to hide again when scrolling up
+                    // element.classList.remove('active');
+                }
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', reveal);
+
+        // Trigger once on load to reveal elements already in view
+        window.addEventListener('DOMContentLoaded', (event) => {
+            reveal();
+        }); 
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Existing event listeners...
+
+
+    
+    // Function to handle scroll animations
+    function handleScrollAnimations() {
+        // Gallery animations
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            const itemBottom = item.getBoundingClientRect().bottom;
+            
+            if (itemTop < window.innerHeight - 100 && itemBottom > 0) {
+                item.classList.add('reveal-active');
+            }
+        });
+
+        // News card animations
+        const newsCards = document.querySelectorAll('.news-card');
+        newsCards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            const cardBottom = card.getBoundingClientRect().bottom;
+            
+            if (cardTop < window.innerHeight - 100 && cardBottom > 0) {
+                card.classList.add('reveal-active');
+            }
+        });
+    }
+
+    // Initial check for elements in viewport
+    handleScrollAnimations();
+
+    // Add scroll event listener for animations
+    window.addEventListener('scroll', handleScrollAnimations);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to handle scroll animations
+    function handleScrollAnimations() {
+        // Gallery animations
+        const gallery = document.querySelector('.gallery');
+        if (gallery) {
+            const galleryTop = gallery.getBoundingClientRect().top;
+            if (galleryTop < window.innerHeight - 100) {
+                gallery.classList.add('reveal-active');
+            }
+        }
+
+        // News grid animations
+        const newsGrid = document.querySelector('.news-grid');
+        if (newsGrid) {
+            const newsGridTop = newsGrid.getBoundingClientRect().top;
+            if (newsGridTop < window.innerHeight - 100) {
+                newsGrid.classList.add('reveal-active');
+            }
+        }
+    }
+
+    // Initial check for elements in viewport
+    handleScrollAnimations();
+
+    // Add scroll event listener for animations
+    window.addEventListener('scroll', handleScrollAnimations);
+});
+document.querySelector('.btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#about').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+    </script>
+   
+</body>
+</html>
