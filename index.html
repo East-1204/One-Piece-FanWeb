@@ -85,6 +85,67 @@ nav {
     transform: scale(1.1); /* Memperbesar gambar sebesar 10% */
 }
 
+/*hamburger*/
+.hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                padding: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 0.5rem 1rem;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 100;
+            }
+
+            /* Animasi hamburger menjadi X */
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+
 
 /* Hero Section */
 .hero {
@@ -1214,6 +1275,11 @@ transition: color 0.3s ease;
                 <a href="#gallery">Gallery</a>
                 <a href="#news">News</a>
             </div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>    
 
@@ -2101,6 +2167,24 @@ document.querySelector('.btn').addEventListener('click', function(e) {
         behavior: 'smooth'
     });
 });
+
+//Hamburger navbar
+const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            // Toggle kelas active untuk menu dan hamburger
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Menutup menu saat link diklik
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
     </script>
    
 </body>
